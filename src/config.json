@@ -1,11 +1,11 @@
 {
-  "floorPlan": "1809",
+  "floorPlan": "1829",
   "coachDescription": {
     "entryLocation": "mid",
     "entryType": "straight",
     "powderRoomLocation": "driver",
     "bedLocation": "driver",
-    "rearToiletLocation": "driver",
+    "rearToiletLocation": "passenger",
     "css": {
       "transform": "translate(10px, -110.5px) scale(1.05)"
     }
@@ -122,7 +122,7 @@
       }
     }
   },
-  "notes": "Newell 1809:",
+  "notes": "Newell 1829:",
   "projectorZones": [],
   "DCDriverActions": {
     "83": [],
@@ -130,9 +130,1687 @@
     "92": [],
     "8A": []
   },
-  "circuits": {
-    "dcDim": {
-      "circuits": []
+  "options": {
+    "inverter": {
+      "displayName": "Inverter Options",
+      "options": {
+        "rvcInverter": {
+          "_note": "must be present in order for RVC Inverters to show status",
+          "description": "Deselected = Mate3s or Mate3 || Selected = any RVC Inverter",
+          "displayName": "RVC Inverter",
+          "type": "inverter",
+          "selected": true
+        }
+      }
+    },
+    "floorheat": {
+      "displayName": "Floor Heat Options",
+      "location": "hvacSvc.floorheatOptions",
+      "options": {
+        "front": {
+          "displayName": "Hide Salon Floor Heat",
+          "type": "floorheat",
+          "selected": true
+        },
+        "bed": {
+          "displayName": "Hide Mid Floor Heat",
+          "type": "floorheat",
+          "selected": true
+        },
+        "bath": {
+          "displayName": "Hide Bedroom Floor Heat",
+          "type": "floorheat",
+          "selected": true
+        },
+        "bathFloorHeat": {
+          "displayName": "Hide Rear Bath Floor Heat",
+          "type": "floorheat",
+          "selected": true
+        }
+      }
+    },
+    "shades": {
+      "displayName": "Shade Options",
+      "location": "shadeSvc.shades",
+      "options": {
+        "basicCab": {
+          "displayName": "Hide Cab Shades",
+          "type": "shades",
+          "selected": true
+        }
+      }
     }
+  },
+  "screens": {
+    "galley": {
+      "location": "galley",
+      "displayName": "Galley",
+      "ipAddress": "192.168.124.71",
+      "state": false
+    },
+    "bedroom": {
+      "location": "bedroom",
+      "displayName": "Bedroom",
+      "ipAddress": "192.168.124.73",
+      "state": false
+    }
+  },
+  "aquaHotReporter": {
+    "configVersion": 2
+  },
+  "lights": {},
+  "circuits": {},
+  "hvacNumberedIndicators": {
+    "front": {
+      "compressor": {
+        "top": {
+          "instance": "1",
+          "feedback": "compressor"
+        },
+        "bottom": {}
+      },
+      "fan": {
+        "top": {
+          "instance": "1",
+          "feedback": "fan"
+        },
+        "bottom": {}
+      },
+      "aquaHot": {
+        "top": {
+          "instance": "L",
+          "feedback": "aquaHot1"
+        },
+        "bottom": {
+          "instance": "R",
+          "feedback": "aquaHot2"
+        }
+      },
+      "floorHeat": {
+        "top": {},
+        "bottom": {}
+      }
+    },
+    "bed": {
+      "compressor": {
+        "top": {
+          "instance": "2",
+          "feedback": "compressor2"
+        },
+        "bottom": {
+          "instance": "3",
+          "feedback": "compressor1"
+        }
+      },
+      "fan": {
+        "top": {
+          "instance": "2",
+          "feedback": "fan2"
+        },
+        "bottom": {
+          "instance": "3",
+          "feedback": "fan1"
+        }
+      },
+      "aquaHot": {
+        "top": {
+          "instance": "1",
+          "feedback": "aquaHot"
+        },
+        "bottom": {}
+      },
+      "heatPump": {
+        "top": {
+          "instance": "1",
+          "feedback": "heatPump1"
+        },
+        "bottom": {
+          "instance": "2",
+          "feedback": "heatPump2"
+        }
+      },
+      "floorHeat": {
+        "top": {},
+        "bottom": {}
+      }
+    },
+    "bath": {
+      "compressor": {
+        "top": {
+          "instance": "4",
+          "feedback": "compressor"
+        },
+        "bottom": {}
+      },
+      "fan": {
+        "top": {
+          "instance": "4",
+          "feedback": "fan"
+        },
+        "bottom": {}
+      },
+      "aquaHot": {
+        "top": {
+          "instance": "2",
+          "feedback": "aquaHot1"
+        },
+        "bottom": {
+          "instance": "3",
+          "feedback": "aquaHot2"
+        }
+      },
+      "heatPump": {
+        "top": {
+          "instance": "3",
+          "feedback": "heatPump"
+        },
+        "bottom": {}
+      },
+      "floorHeat": {
+        "top": {},
+        "bottom": {}
+      }
+    }
+  },
+  "Hvac": {
+    "hvacVersion": {
+      "version": "6",
+      "hidden": true
+    },
+    "aquahotBurner": {
+      "pgn": "FE98",
+      "circuit": 1,
+      "hidden": true
+    },
+    "floorHeat": {
+      "zones": [
+        6
+      ],
+      "hidden": true
+    },
+    "exterior": {
+      "temp": "--",
+      "thermostatCircuit": "05",
+      "hidden": true
+    },
+    "bay": {
+      "temp": "--",
+      "thermostatCircuit": "11",
+      "hidden": true
+    },
+    "aquaHot": {
+      "temp": "--",
+      "thermostatCircuit": "04",
+      "hidden": true
+    },
+    "front": {
+      "syncFloorHeat": false,
+      "zone": "00",
+      "hash": {
+        "zones": [
+          "One"
+        ],
+        "Off": [
+          199,
+          200,
+          215
+        ],
+        "Low": [
+          199,
+          200,
+          216
+        ],
+        "High": [
+          199,
+          200,
+          217
+        ]
+      },
+      "floorHeatOffSet": {
+        "available": true,
+        "messageArrayIndex": 0
+      },
+      "canMessages": {
+        "cool": {
+          "on": [
+            "can,0x19fef900,0x00,0x31,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ],
+          "off": [
+            "can,0x19fef900,0x00,0x30,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ]
+        },
+        "dsFrontAHFan": {
+          "on": [
+            "can,0x19FED900,0xFF,0x81,0xC7,0x0F,0x01,0x00,0xD1,0xEA"
+          ],
+          "off": [
+            "can,0x19FED900,0xFF,0x81,0xC7,0x0F,0x00,0x00,0xD1,0xEA"
+          ],
+          "auto": [
+            "can,0x19FED900,0xFF,0x81,0xC7,0x0F,0x02,0x00,0xD1,0xEA"
+          ]
+        },
+        "psFrontAHFan": {
+          "on": [
+            "can,0x19FED900,0xFF,0x81,0xC8,0x0F,0x01,0x00,0xD1,0xEA"
+          ],
+          "off": [
+            "can,0x19FED900,0xFF,0x81,0xC8,0x0F,0x00,0x00,0xD1,0xEA"
+          ],
+          "auto": [
+            "can,0x19FED900,0xFF,0x81,0xC8,0x0F,0x02,0x00,0xD1,0xEA"
+          ]
+        },
+        "salonAHFan": {
+          "on": [
+            "can,0x19FED900,0xFF,0x81,0xC9,0x0F,0x01,0x00,0xD1,0xEA"
+          ],
+          "off": [
+            "can,0x19FED900,0xFF,0x81,0xC9,0x0F,0x00,0x00,0xD1,0xEA"
+          ],
+          "auto": [
+            "can,0x19FED900,0xFF,0x81,0xC9,0x0F,0x02,0x00,0xD1,0xEA"
+          ]
+        },
+        "aquaHotZone1StatusCv": {
+          "on": [
+            "can,0x19FED900,0xFF,0x81,0xCA,0x0F,0x01,0x00,0xD1,0xEA"
+          ],
+          "off": [
+            "can,0x19FED900,0xFF,0x81,0xCA,0x0F,0x00,0x00,0xD1,0xEA"
+          ]
+        },
+        "floorHeat": {
+          "0": [
+            "can,0x19FEF900,0x0B,0xc0,0xff,0xff,0xff,0xff,0xff,0xff"
+          ],
+          "1": [
+            "can,0x19FEF900,0x0B,0xc2,0xff,0xa0,0x24,0xff,0xff,0xff"
+          ],
+          "2": [
+            "can,0x19FEF900,0x0B,0xc2,0xff,0xd5,0x24,0xff,0xff,0xff"
+          ],
+          "3": [
+            "can,0x19FEF900,0x0B,0xc2,0xff,0x0b,0x25,0xff,0xff,0xff"
+          ],
+          "4": [
+            "can,0x19FEF900,0x0B,0xc2,0xff,0x40,0x25,0xff,0xff,0xff"
+          ],
+          "5": [
+            "can,0x19FEF900,0x0B,0xc2,0xff,0x75,0x25,0xff,0xff,0xff"
+          ],
+          "6": [
+            "can,0x19FEF900,0x0B,0xc2,0xff,0xab,0x25,0xff,0xff,0xff"
+          ],
+          "7": [
+            "can,0x19FEF900,0x0B,0xc2,0xff,0xe0,0x25,0xff,0xff,0xff"
+          ],
+          "8": [
+            "can,0x19FEF900,0x0B,0xc2,0xff,0x15,0x26,0xff,0xff,0xff"
+          ],
+          "9": [
+            "can,0x19FEF900,0x0B,0xc2,0xff,0x4b,0x26,0xff,0xff,0xff"
+          ],
+          "10": [
+            "can,0x19FEF900,0x0B,0xc2,0xff,0x80,0x26,0xff,0xff,0xff"
+          ],
+          "on": [
+            "can,0x19fef900,0x0B,0xc2,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ],
+          "off": [
+            "can,0x19FEF900,0x0B,0xc0,0xff,0xff,0xff,0xff,0xff,0xff"
+          ]
+        },
+        "fanSpeed": {
+          "auto": [
+            "can,0x19fef900,0x00,0x0F,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ],
+          "low": [
+            "can,0x19fef900,0x00,0x1F,0x64,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ],
+          "high": [
+            "can,0x19fef900,0x00,0x1F,0xC8,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ]
+        },
+        "fanOnly": {
+          "on": {
+            "Low": [
+              "can,0x19FFE000,0x01,0x04,{randLSB},{randMSB},0x64,0xFF,{byteReplacement0},{byteReplacement1}"
+            ],
+            "High": [
+              "can,0x19FFE000,0x01,0x04,{randLSB},{randMSB},0xC8,0xFF,{byteReplacement0},{byteReplacement1}"
+            ]
+          },
+          "off": [
+            "can,0x19FFE000,0x01,0x00,{randLSB},{randMSB},0x00,0xFF,{byteReplacement0},{byteReplacement1}"
+          ]
+        }
+      },
+      "opModeCircuit": "91",
+      "thermostatCircuit": "00",
+      "options": {
+        "heatPump": {
+          "forceDisable": true,
+          "enabled": false,
+          "name": "Aux Heat"
+        },
+        "aquaHot": {
+          "forceDisable": true,
+          "enabled": false,
+          "name": "Aqua-Hot"
+        },
+        "floorHeat": {
+          "circuit": "0B",
+          "enabled": true,
+          "manual": {
+            "setPoint": "off"
+          },
+          "scheduleDay": {
+            "setPoint": "off"
+          },
+          "scheduleNight": {
+            "setPoint": "off"
+          }
+        }
+      },
+      "indicators": {
+        "compressor": {
+          "circuit": "208",
+          "color": "#000000"
+        },
+        "aquaHot": {
+          "circuit": "",
+          "color": "#000000"
+        }
+      },
+      "name": "Cab",
+      "floorHeatName": "Salon",
+      "aquaHotFanButtons": true,
+      "heatable": true,
+      "compressor": true,
+      "coolable": true,
+      "syncable": true,
+      "opMode": "Off",
+      "fanMode": "Auto",
+      "fanSpeed": "Auto",
+      "temp": "--",
+      "tempMin": 45,
+      "tempMax": 99,
+      "scheduleMode": false,
+      "modes": {
+        "manual": {
+          "mode": "manual",
+          "fanMode": "Auto",
+          "fanSpeed": "Auto",
+          "opMode": "Off",
+          "heatPump": false,
+          "aquaHot": false,
+          "aquaHotFans": {
+            "salonAHFan": "Off",
+            "dsFrontAHFan": "Off",
+            "psFrontAHFan": "Off"
+          },
+          "state": 3,
+          "heat": 65,
+          "cool": 78,
+          "heatSource": {
+            "diesel": 0,
+            "electric": 0
+          }
+        },
+        "scheduleDay": {
+          "mode": "schedule Day",
+          "fanMode": "Auto",
+          "fanSpeed": "Auto",
+          "opMode": "Off",
+          "heatPump": false,
+          "aquaHot": false,
+          "aquaHotFans": {
+            "salonAHFan": "Auto",
+            "dsFrontAHFan": "Auto",
+            "psFrontAHFan": "Auto"
+          },
+          "state": 3,
+          "heat": 65,
+          "cool": 78,
+          "heatSource": {
+            "diesel": 0,
+            "electric": 0
+          }
+        },
+        "scheduleNight": {
+          "mode": "schedule Night",
+          "fanMode": "Auto",
+          "fanSpeed": "Auto",
+          "opMode": "Off",
+          "heatPump": false,
+          "aquaHot": false,
+          "aquaHotFans": {
+            "salonAHFan": "Auto",
+            "dsFrontAHFan": "Auto",
+            "psFrontAHFan": "Auto"
+          },
+          "state": 3,
+          "heat": 65,
+          "cool": 78,
+          "heatSource": {
+            "diesel": 0,
+            "electric": 0
+          }
+        }
+      }
+    },
+    "frontFloorHeat": {
+      "hidden": true,
+      "zone": "11"
+    },
+    "galley": {
+      "note": "THIS IS PART OF THE SALON....",
+      "temp": "--",
+      "thermostatCircuit": "02",
+      "name": "Galley",
+      "hidden": true
+    },
+    "bed": {
+      "syncFloorHeat": false,
+      "secondaryTempZone": "front",
+      "secondaryZone": "galley",
+      "multipleACs": true,
+      "averageTemp": true,
+      "hash": {
+        "zones": [
+          "Two",
+          "Three"
+        ],
+        "Off": [
+          199,
+          200,
+          227,
+          221
+        ],
+        "Low": [
+          199,
+          200,
+          228,
+          222
+        ],
+        "High": [
+          199,
+          200,
+          229,
+          223
+        ]
+      },
+      "canMessages": {
+        "heatPump": {
+          "on": [
+            "can,0x19fef900,0x08,0x32,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ],
+          "off": [
+            "can,0x19fef900,0x08,0x30,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ]
+        },
+        "aquaHot": {
+          "forceOn": [
+            "can,0x19fef900,0x04,0x32,0xFF,0x90,0x25,0xC5,0x25,0xFF"
+          ],
+          "on": [
+            "can,0x19fef900,0x04,0x32,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ],
+          "off": [
+            "can,0x19fef900,0x04,0x30,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ]
+        },
+        "cool": {
+          "on": [
+            "can,0x19fef900,0x01,0x31,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF",
+            "can,0x19fef900,0x02,0x31,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ],
+          "off": [
+            "can,0x19fef900,0x01,0x30,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF",
+            "can,0x19fef900,0x02,0x30,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ]
+        },
+        "floorHeat": {
+          "0": [
+            "can,0x19fef900,0x0C,0xc0,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ],
+          "1": [
+            "can,0x19fef900,0x0C,0xc2,0xFF,0xa0,0x24,0xFF,0xFF,0xFF"
+          ],
+          "2": [
+            "can,0x19FEF900,0x0C,0xc2,0xff,0xd5,0x24,0xff,0xff,0xff"
+          ],
+          "3": [
+            "can,0x19FEF900,0x0C,0xc2,0xff,0x0b,0x25,0xff,0xff,0xff"
+          ],
+          "4": [
+            "can,0x19FEF900,0x0C,0xc2,0xff,0x40,0x25,0xff,0xff,0xff"
+          ],
+          "5": [
+            "can,0x19FEF900,0x0C,0xc2,0xff,0x75,0x25,0xff,0xff,0xff"
+          ],
+          "6": [
+            "can,0x19FEF900,0x0C,0xc2,0xff,0xab,0x25,0xff,0xff,0xff"
+          ],
+          "7": [
+            "can,0x19FEF900,0x0C,0xc2,0xff,0xe0,0x25,0xff,0xff,0xff"
+          ],
+          "8": [
+            "can,0x19FEF900,0x0C,0xc2,0xff,0x15,0x26,0xff,0xff,0xff"
+          ],
+          "9": [
+            "can,0x19FEF900,0x0C,0xc2,0xff,0x4b,0x26,0xff,0xff,0xff"
+          ],
+          "10": [
+            "can,0x19FEF900,0x0C,0xc2,0xff,0x80,0x26,0xff,0xff,0xff"
+          ],
+          "on": [
+            "can,0x19fef900,0x0C,0xc2,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ],
+          "off": [
+            "can,0x19fef900,0x0C,0xc0,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ]
+        },
+        "fanSpeed": {
+          "auto": [
+            "can,0x19fef900,0x01,0x0F,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF",
+            "can,0x19fef900,0x02,0x0F,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ],
+          "low": [
+            "can,0x19fef900,0x01,0x1F,0x64,0xFF,0xFF,0xFF,0xFF,0xFF",
+            "can,0x19fef900,0x02,0x1F,0x64,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ],
+          "high": [
+            "can,0x19fef900,0x01,0x1F,0xC8,0xFF,0xFF,0xFF,0xFF,0xFF",
+            "can,0x19fef900,0x02,0x1F,0xC8,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ]
+        },
+        "fanOnly": {
+          "on": {
+            "Low": [
+              "can,0x19FFE000,0x02,0x04,{randLSB},{randMSB},0x64,0xFF,{byteReplacement0},{byteReplacement1}",
+              "can,0x19FFE000,0x03,0x04,{randLSB},{randMSB},0x64,0xFF,{byteReplacement0},{byteReplacement1}"
+            ],
+            "High": [
+              "can,0x19FFE000,0x02,0x04,{randLSB},{randMSB},0xC8,0xFF,{byteReplacement0},{byteReplacement1}",
+              "can,0x19FFE000,0x03,0x04,{randLSB},{randMSB},0xC8,0xFF,{byteReplacement0},{byteReplacement1}"
+            ]
+          },
+          "off": [
+            "can,0x19FFE000,0x02,0x00,{randLSB},{randMSB},0x00,0xFF,{byteReplacement0},{byteReplacement1}",
+            "can,0x19FFE000,0x03,0x00,{randLSB},{randMSB},0x00,0xFF,{byteReplacement0},{byteReplacement1}"
+          ]
+        }
+      },
+      "zone": "02",
+      "zone2": "01",
+      "AHZone": "04",
+      "HPZone": "08",
+      "opModeCircuit": "92",
+      "thermostatCircuit": "01",
+      "options": {
+        "heatPump": {
+          "forceEnable": true,
+          "enabled": true,
+          "name": "Aux Heat"
+        },
+        "aquaHot": {
+          "enabled": true,
+          "name": "Aqua-Hot"
+        },
+        "floorHeat": {
+          "circuit": "0D",
+          "enabled": true,
+          "manual": {
+            "setPoint": "off"
+          },
+          "scheduleDay": {
+            "setPoint": "off"
+          },
+          "scheduleNight": {
+            "setPoint": "off"
+          }
+        }
+      },
+      "indicators": {
+        "compressor": {
+          "circuit": "208",
+          "color": "#000000"
+        },
+        "compressor2": {
+          "circuit": "210",
+          "color": "#000000"
+        },
+        "aquaHot": {
+          "circuit": "",
+          "color": "#000000"
+        }
+      },
+      "name": "Living Area",
+      "floorHeatName": "Mid / Hall",
+      "heatable": true,
+      "compressor": true,
+      "coolable": true,
+      "syncable": true,
+      "opMode": "Off",
+      "fanMode": "Auto",
+      "fanSpeed": "Auto",
+      "temp": "--",
+      "tempMin": 45,
+      "tempMax": 99,
+      "scheduleMode": false,
+      "modes": {
+        "manual": {
+          "mode": "manual",
+          "fanMode": "Auto",
+          "fanSpeed": "Auto",
+          "opMode": "Off",
+          "heatPump": false,
+          "aquaHot": false,
+          "state": 3,
+          "heat": 65,
+          "cool": 78,
+          "heatSource": {
+            "diesel": 0,
+            "electric": 0
+          }
+        },
+        "scheduleDay": {
+          "mode": "schedule Day",
+          "fanMode": "Auto",
+          "fanSpeed": "Auto",
+          "opMode": "Off",
+          "heatPump": false,
+          "aquaHot": false,
+          "state": 3,
+          "heat": 65,
+          "cool": 78,
+          "heatSource": {
+            "diesel": 0,
+            "electric": 0
+          }
+        },
+        "scheduleNight": {
+          "mode": "schedule Night",
+          "fanMode": "Auto",
+          "fanSpeed": "Auto",
+          "opMode": "Off",
+          "heatPump": false,
+          "aquaHot": false,
+          "state": 3,
+          "heat": 65,
+          "cool": 78,
+          "heatSource": {
+            "diesel": 0,
+            "electric": 0
+          }
+        }
+      }
+    },
+    "bedFloorHeat": {
+      "hidden": true,
+      "zone": "13"
+    },
+    "bath": {
+      "syncFloorHeat": false,
+      "hash": {
+        "zones": [
+          "Four"
+        ],
+        "Off": [
+          199,
+          200,
+          233
+        ],
+        "Low": [
+          199,
+          200,
+          234
+        ],
+        "High": [
+          199,
+          200,
+          235
+        ]
+      },
+      "canMessages": {
+        "fanOnly": {
+          "on": {
+            "Low": [
+              "can,0x19FFE000,0x04,0x04,{randLSB},{randMSB},0x64,0xFF,{byteReplacement0},{byteReplacement1}"
+            ],
+            "High": [
+              "can,0x19FFE000,0x04,0x04,{randLSB},{randMSB},0xC8,0xFF,{byteReplacement0},{byteReplacement1}"
+            ]
+          },
+          "off": [
+            "can,0x19FFE000,0x04,0x00,{randLSB},{randMSB},0x00,0xFF,{byteReplacement0},{byteReplacement1}"
+          ]
+        },
+        "heatPump": {
+          "on": [
+            "can,0x19fef900,0x09,0x32,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ],
+          "off": [
+            "can,0x19fef900,0x09,0x30,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ]
+        },
+        "aquaHot": {
+          "on": [
+            "can,0x19fef900,0x06,0x32,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ],
+          "off": [
+            "can,0x19fef900,0x06,0x30,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ]
+        },
+        "cool": {
+          "on": [
+            "can,0x19fef900,0x03,0x31,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ],
+          "off": [
+            "can,0x19fef900,0x03,0x30,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ]
+        },
+        "fanSpeed": {
+          "auto": [
+            "can,0x19fef900,0x03,0x0F,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ],
+          "low": [
+            "can,0x19fef900,0x03,0x1F,0x64,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ],
+          "high": [
+            "can,0x19fef900,0x03,0x1F,0xC8,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ]
+        },
+        "floorHeat": {
+          "0": [
+            "can,0x19FEF900,0x0D,0xc0,0xff,0xff,0xff,0xff,0xff,0xff"
+          ],
+          "1": [
+            "can,0x19FEF900,0x0D,0xc2,0xff,0xa0,0x24,0xff,0xff,0xff"
+          ],
+          "2": [
+            "can,0x19FEF900,0x0D,0xc2,0xff,0xd5,0x24,0xff,0xff,0xff"
+          ],
+          "3": [
+            "can,0x19FEF900,0x0D,0xc2,0xff,0x0b,0x25,0xff,0xff,0xff"
+          ],
+          "4": [
+            "can,0x19FEF900,0x0D,0xc2,0xff,0x40,0x25,0xff,0xff,0xff"
+          ],
+          "5": [
+            "can,0x19FEF900,0x0D,0xc2,0xff,0x75,0x25,0xff,0xff,0xff"
+          ],
+          "6": [
+            "can,0x19FEF900,0x0D,0xc2,0xff,0xab,0x25,0xff,0xff,0xff"
+          ],
+          "7": [
+            "can,0x19FEF900,0x0D,0xc2,0xff,0xe0,0x25,0xff,0xff,0xff"
+          ],
+          "8": [
+            "can,0x19FEF900,0x0D,0xc2,0xff,0x15,0x26,0xff,0xff,0xff"
+          ],
+          "9": [
+            "can,0x19FEF900,0x0D,0xc2,0xff,0x4b,0x26,0xff,0xff,0xff"
+          ],
+          "10": [
+            "can,0x19FEF900,0x0D,0xc2,0xff,0x80,0x26,0xff,0xff,0xff"
+          ],
+          "on": [
+            "can,0x19FEF900,0x0D,0xc2,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ],
+          "off": [
+            "can,0x19FEF900,0x0D,0xc0,0xff,0xff,0xff,0xff,0xff,0xff"
+          ]
+        }
+      },
+      "zone": "03",
+      "zone1": "06",
+      "zone2": "09",
+      "zone3": "15",
+      "AHZone": "06",
+      "AHZone2": "15",
+      "HPZone": "09",
+      "opModeCircuit": "93",
+      "thermostatCircuit": "02",
+      "heatThermostatCircuit": "12",
+      "options": {
+        "heatPump": {
+          "enabled": true,
+          "name": "Aux Heat"
+        },
+        "aquaHot": {
+          "enabled": true,
+          "name": "Bedroom Aqua-Hot",
+          "fontSize": "16px"
+        },
+        "floorHeat": {
+          "circuit": "0E",
+          "enabled": true,
+          "manual": {
+            "setPoint": "off"
+          },
+          "scheduleDay": {
+            "setPoint": "off"
+          },
+          "scheduleNight": {
+            "setPoint": "off"
+          }
+        }
+      },
+      "name": "Bedroom",
+      "floorHeatName": "Bedroom",
+      "heatable": true,
+      "compressor": true,
+      "coolable": true,
+      "syncable": true,
+      "opMode": "Off",
+      "fanMode": "Auto",
+      "fanSpeed": "Auto",
+      "temp": "--",
+      "tempMin": 45,
+      "tempMax": 99,
+      "scheduleMode": false,
+      "modes": {
+        "manual": {
+          "mode": "manual",
+          "fanMode": "Auto",
+          "fanSpeed": "Auto",
+          "opMode": "Off",
+          "heatPump": false,
+          "aquaHot": false,
+          "aquaHot2": false,
+          "state": 3,
+          "heat": 65,
+          "cool": 78,
+          "heatSource": {
+            "diesel": 0,
+            "electric": 0
+          }
+        },
+        "scheduleDay": {
+          "mode": "schedule Day",
+          "fanMode": "Auto",
+          "fanSpeed": "Auto",
+          "opMode": "Off",
+          "heatPump": false,
+          "aquaHot": false,
+          "aquaHot2": false,
+          "state": 3,
+          "heat": 65,
+          "cool": 78,
+          "heatSource": {
+            "diesel": 0,
+            "electric": 0
+          }
+        },
+        "scheduleNight": {
+          "mode": "schedule Night",
+          "fanMode": "Auto",
+          "fanSpeed": "Auto",
+          "opMode": "Off",
+          "heatPump": false,
+          "aquaHot": false,
+          "aquaHot2": false,
+          "state": 3,
+          "heat": 65,
+          "cool": 78,
+          "heatSource": {
+            "diesel": 0,
+            "electric": 0
+          }
+        }
+      }
+    },
+    "bathFloorHeat": {
+      "zone": "14",
+      "syncFloorHeat": false,
+      "hidden": true,
+      "syncable": true,
+      "showFloorHeat": true,
+      "floorHeatName": "Rr. Bath",
+      "canMessages": {
+        "floorHeat": {
+          "0": [
+            "can,0x19FEF900,0x0E,0xc0,0xff,0xff,0xff,0xff,0xff,0xff"
+          ],
+          "1": [
+            "can,0x19FEF900,0x0E,0xc2,0xff,0xa0,0x24,0xff,0xff,0xff"
+          ],
+          "2": [
+            "can,0x19FEF900,0x0E,0xc2,0xff,0xd5,0x24,0xff,0xff,0xff"
+          ],
+          "3": [
+            "can,0x19FEF900,0x0E,0xc2,0xff,0x0b,0x25,0xff,0xff,0xff"
+          ],
+          "4": [
+            "can,0x19FEF900,0x0E,0xc2,0xff,0x40,0x25,0xff,0xff,0xff"
+          ],
+          "5": [
+            "can,0x19FEF900,0x0E,0xc2,0xff,0x75,0x25,0xff,0xff,0xff"
+          ],
+          "6": [
+            "can,0x19FEF900,0x0E,0xc2,0xff,0xab,0x25,0xff,0xff,0xff"
+          ],
+          "7": [
+            "can,0x19FEF900,0x0E,0xc2,0xff,0xe0,0x25,0xff,0xff,0xff"
+          ],
+          "8": [
+            "can,0x19FEF900,0x0E,0xc2,0xff,0x15,0x26,0xff,0xff,0xff"
+          ],
+          "9": [
+            "can,0x19FEF900,0x0E,0xc2,0xff,0x4b,0x26,0xff,0xff,0xff"
+          ],
+          "10": [
+            "can,0x19FEF900,0x0E,0xc2,0xff,0x80,0x26,0xff,0xff,0xff"
+          ],
+          "on": [
+            "can,0x19fef900,0x0E,0xc2,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+          ],
+          "off": [
+            "can,0x19FEF900,0x0E,0xc0,0xff,0xff,0xff,0xff,0xff,0xff"
+          ]
+        }
+      },
+      "options": {
+        "heatPump": {
+          "enabled": false,
+          "name": "Aux Heat"
+        },
+        "aquaHot": {
+          "enabled": false,
+          "name": "Aqua-Hot"
+        },
+        "floorHeat": {
+          "circuit": "0E",
+          "enabled": true,
+          "manual": {
+            "setPoint": "off"
+          },
+          "scheduleDay": {
+            "setPoint": "off"
+          },
+          "scheduleNight": {
+            "setPoint": "off"
+          }
+        }
+      }
+    }
+  },
+  "shades": {
+    "dayAndNightCircuits": true,
+    "frontMaster": {
+      "shadeName": "Front",
+      "up": 0,
+      "down": 0,
+      "active": 0,
+      "dayCircuit": [
+        49,
+        51,
+        53,
+        57,
+        59,
+        61,
+        63,
+        65,
+        67,
+        69,
+        71
+      ],
+      "nightCircuit": [
+        1,
+        3,
+        5,
+        9,
+        11,
+        13,
+        15,
+        17,
+        19,
+        21,
+        23
+      ],
+      "joggable": [
+        3,
+        9,
+        11,
+        13,
+        15,
+        17,
+        19,
+        21,
+        23
+      ]
+    },
+    "basicCab": {
+      "shadeName": "Cab",
+      "up": 0,
+      "down": 0,
+      "active": 0,
+      "dayCircuit": [
+        49,
+        51,
+        53
+      ],
+      "nightCircuit": [
+        1,
+        3,
+        5
+      ],
+      "joggable": [
+        3
+      ]
+    },
+    "basicSalon": {
+      "shadeName": "Salon",
+      "up": 0,
+      "down": 0,
+      "active": 0,
+      "dayCircuit": [
+        57,
+        59,
+        61,
+        63,
+        65,
+        67,
+        69,
+        71
+      ],
+      "nightCircuit": [
+        9,
+        11,
+        13,
+        15,
+        17,
+        19,
+        21,
+        23
+      ],
+      "joggable": [
+        9,
+        11,
+        13,
+        15,
+        17,
+        19,
+        21,
+        23
+      ]
+    },
+    "basicMidBath": {
+      "shadeName": "Mid Bath",
+      "up": 0,
+      "down": 0,
+      "active": 0,
+      "dayCircuit": [
+        89
+      ],
+      "nightCircuit": [
+        41
+      ],
+      "joggable": [
+        41
+      ]
+    },
+    "basicBedroom": {
+      "shadeName": "Bed",
+      "up": 0,
+      "down": 0,
+      "active": 0,
+      "dayCircuit": [
+        75,
+        77,
+        83
+      ],
+      "nightCircuit": [
+        27,
+        29,
+        35
+      ],
+      "joggable": [
+        27,
+        29,
+        35
+      ]
+    },
+    "basicRearBath": {
+      "shadeName": "Rear Bath",
+      "up": 0,
+      "down": 0,
+      "active": 0,
+      "dayCircuit": [],
+      "nightCircuit": [],
+      "joggable": []
+    },
+    "microwaveVentUp": {
+      "circuit": 16,
+      "name": "Microwave Vent Up",
+      "refName": "microwaveVentUp",
+      "triggeredState": {
+        "name": "microwaveVent",
+        "state": true
+      },
+      "press": [
+        "can,0x19FEDF00,0x10,0xFF,0xC8,0x85,0x1E,0x00,0xFF,0xFF"
+      ],
+      "hold": [
+        "can,0x19FEDF00,0x10,0xFF,0xC8,0x85,0x1E,0x00,0xFF,0xFF"
+      ],
+      "state": false
+    },
+    "microwaveVentDown": {
+      "circuit": 16,
+      "name": "Microwave Vent Down",
+      "refName": "microwaveVentDown",
+      "triggeredState": {
+        "name": "microwaveVent",
+        "state": false
+      },
+      "press": [
+        "can,0x19FEDF00,0x10,0xFF,0xC8,0x45,0x1E,0x00,0xFF,0xFF"
+      ],
+      "hold": [
+        "can,0x19FEDF00,0x10,0xFF,0xC8,0x45,0x1E,0x00,0xFF,0xFF"
+      ],
+      "state": false
+    }
+  },
+  "actionStatusMessage": {
+    "away": [
+      "can,0x19FF3300,0x10,0x01,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+    ],
+    "stow": [
+      "can,0x19FF3300,0x10,0x02,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+    ],
+    "off": [
+      "can,0x19FF3300,0x10,0x00,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF"
+    ]
+  },
+  "actions": {
+    "away": {
+      "state": false,
+      "mode": "Away",
+      "startDelay": 0,
+      "lockDelay": {
+        "selected": false,
+        "type": "lock",
+        "delayVal": 0
+      },
+      "locks": {
+        "entryDoorLock": {
+          "selected": true,
+          "refName": "entryDoorLock",
+          "name": "Entry Door Lock",
+          "type": "locks",
+          "state": true,
+          "direction": "none"
+        },
+        "bayDoorLock": {
+          "selected": true,
+          "refName": "bayDoorLock",
+          "name": "Bay Door Lock",
+          "type": "locks",
+          "state": true,
+          "direction": "none"
+        }
+      },
+      "avMaster": {
+        "selected": false,
+        "type": "av"
+      },
+      "pumps": {
+        "mainWaterPump": {
+          "selected": true,
+          "refName": "mainWaterPump",
+          "name": "Main Water Pump",
+          "type": "pump",
+          "state": true,
+          "direction": "none"
+        },
+        "auxWaterPump": {
+          "selected": true,
+          "refName": "auxWaterPump",
+          "name": "Aux Water Pump",
+          "type": "pump",
+          "state": true,
+          "direction": "none"
+        },
+        "autoWaterFill": {
+          "selected": true,
+          "refName": "autoWaterFillPump1",
+          "name": "Auto Water Fill",
+          "type": "pump",
+          "state": true,
+          "direction": "none"
+        }
+      },
+      "lights": {
+        "intLights": {
+          "selected": true,
+          "type": "lights",
+          "name": "Interior Lights",
+          "refName": "interior",
+          "state": true,
+          "direction": "none"
+        },
+        "extLights": {
+          "selected": true,
+          "type": "lights",
+          "name": "Exterior Lights",
+          "refName": "exterior",
+          "state": true,
+          "direction": "none"
+        }
+      },
+      "shades": {
+        "basicSalon": {
+          "refName": "basicSalon",
+          "selected": true,
+          "direction": "none",
+          "name": "Living Area Shades",
+          "type": "shades"
+        },
+        "basicCab": {
+          "refName": "basicCab",
+          "selected": true,
+          "direction": "none",
+          "name": "Cab Shades",
+          "type": "shades"
+        },
+        "basicBedroom": {
+          "refName": "basicBedroom",
+          "selected": true,
+          "direction": "none",
+          "name": "Bedroom Shades",
+          "type": "shades"
+        }
+      },
+      "climateControl": {
+        "selected": true,
+        "type": "hvac",
+        "ac": {
+          "selected": true,
+          "temp": 75
+        },
+        "heat": {
+          "selected": true,
+          "temp": 68
+        }
+      }
+    },
+    "stow": {
+      "state": false,
+      "mode": "Stow",
+      "startDelay": 0,
+      "lockDelay": {
+        "selected": false,
+        "type": "lock",
+        "delayVal": 0
+      },
+      "locks": {
+        "entryDoorLock": {
+          "selected": true,
+          "refName": "entryDoorLock",
+          "name": "Entry Door Lock",
+          "type": "locks",
+          "state": true,
+          "direction": "none"
+        },
+        "bayDoorLock": {
+          "selected": true,
+          "refName": "bayDoorLock",
+          "name": "Bay Door Lock",
+          "type": "locks",
+          "state": true,
+          "direction": "none"
+        }
+      },
+      "avMaster": {
+        "selected": false,
+        "type": "av"
+      },
+      "pumps": {
+        "mainWaterPump": {
+          "selected": true,
+          "refName": "mainWaterPump",
+          "name": "Main Water Pump",
+          "type": "pump",
+          "state": true,
+          "direction": "none"
+        },
+        "auxWaterPump": {
+          "selected": true,
+          "refName": "auxWaterPump",
+          "name": "Aux Water Pump",
+          "type": "pump",
+          "state": true,
+          "direction": "none"
+        },
+        "autoWaterFill": {
+          "selected": true,
+          "refName": "autoWaterFillPump2",
+          "name": "Auto Water Fill",
+          "type": "pump",
+          "state": true,
+          "direction": "none"
+        }
+      },
+      "lights": {
+        "intLights": {
+          "selected": true,
+          "type": "lights",
+          "name": "Interior Lights",
+          "refName": "interior",
+          "state": true,
+          "direction": "none"
+        },
+        "extLights": {
+          "selected": true,
+          "type": "lights",
+          "name": "Exterior Lights",
+          "refName": "exterior",
+          "state": true,
+          "direction": "none"
+        }
+      },
+      "shades": {
+        "basicSalon": {
+          "refName": "basicSalon",
+          "selected": true,
+          "direction": "none",
+          "name": "Living Area Shades",
+          "type": "shades"
+        },
+        "basicCab": {
+          "refName": "basicCab",
+          "selected": true,
+          "direction": "none",
+          "name": "Cab Shades",
+          "type": "shades"
+        },
+        "basicBedroom": {
+          "refName": "basicBedroom",
+          "selected": true,
+          "direction": "none",
+          "name": "Bedroom Shades",
+          "type": "shades"
+        }
+      },
+      "climateControl": {
+        "selected": true,
+        "type": "hvac",
+        "ac": {
+          "selected": true,
+          "temp": 75
+        },
+        "heat": {
+          "selected": true,
+          "temp": 68
+        }
+      }
+    },
+    "salonTheaterOn": {
+      "state": false,
+      "mode": "Salon Theater On",
+      "lights": {
+        "interiorAccent": {
+          "selected": true,
+          "type": "lights",
+          "name": "Interior Acc.",
+          "refName": "interiorAccent",
+          "state": true,
+          "direction": "none",
+          "value": 50
+        },
+        "salon": {
+          "selected": true,
+          "type": "lights",
+          "name": "Salon",
+          "refName": "salon",
+          "state": true,
+          "direction": "none",
+          "value": 50
+        },
+        "galley": {
+          "selected": true,
+          "type": "lights",
+          "name": "Galley",
+          "refName": "galley",
+          "state": true,
+          "direction": "none",
+          "value": 50
+        },
+        "dinette": {
+          "selected": true,
+          "type": "lights",
+          "name": "Dinette",
+          "refName": "dinette",
+          "state": true,
+          "direction": "none",
+          "value": 50
+        },
+        "dsFrontSlide": {
+          "selected": true,
+          "type": "lights",
+          "name": "D/S Frt. Slide",
+          "refName": "dsFrontSlide",
+          "state": true,
+          "direction": "none",
+          "value": 50
+        },
+        "psFrontSlide": {
+          "selected": true,
+          "type": "lights",
+          "name": "P/S Frt. Slide",
+          "refName": "psFrontSlide",
+          "state": true,
+          "direction": "none",
+          "value": 50
+        }
+      },
+      "shades": {
+        "basicSalon": {
+          "refName": "basicSalon",
+          "selected": true,
+          "direction": "none",
+          "name": "Living Area Shades",
+          "type": "shades"
+        },
+        "basicCab": {
+          "refName": "basicCab",
+          "selected": true,
+          "direction": "none",
+          "name": "Cab Shades",
+          "type": "shades"
+        }
+      },
+      "tvLift": {}
+    },
+    "salonTheaterOff": {
+      "state": false,
+      "mode": "Salon Theater Off",
+      "lights": {
+        "interiorAccent": {
+          "selected": true,
+          "type": "lights",
+          "name": "Interior Acc.",
+          "refName": "interiorAccent",
+          "state": true,
+          "direction": "none",
+          "value": 50
+        },
+        "salon": {
+          "selected": true,
+          "type": "lights",
+          "name": "Salon",
+          "refName": "salon",
+          "state": true,
+          "direction": "none",
+          "value": 50
+        },
+        "galley": {
+          "selected": true,
+          "type": "lights",
+          "name": "Galley",
+          "refName": "galley",
+          "state": true,
+          "direction": "none",
+          "value": 50
+        },
+        "dinette": {
+          "selected": true,
+          "type": "lights",
+          "name": "Dinette",
+          "refName": "dinette",
+          "state": true,
+          "direction": "none",
+          "value": 50
+        },
+        "dsFrontSlide": {
+          "selected": true,
+          "type": "lights",
+          "name": "D/S Frt. Slide",
+          "refName": "dsFrontSlide",
+          "state": true,
+          "direction": "none",
+          "value": 50
+        },
+        "psFrontSlide": {
+          "selected": true,
+          "type": "lights",
+          "name": "P/S Frt. Slide",
+          "refName": "psFrontSlide",
+          "state": true,
+          "direction": "none",
+          "value": 50
+        }
+      },
+      "shades": {
+        "basicSalon": {
+          "refName": "basicSalon",
+          "selected": true,
+          "direction": "none",
+          "name": "Living Area Shades",
+          "type": "shades"
+        },
+        "basicCab": {
+          "refName": "basicCab",
+          "selected": true,
+          "direction": "none",
+          "name": "Cab Shades",
+          "type": "shades"
+        }
+      },
+      "tvLift": {}
+    },
+    "bedroomTheaterOn": {
+      "state": false,
+      "mode": "Bedroom Theater On",
+      "lights": {
+        "interiorAccent": {
+          "selected": true,
+          "type": "lights",
+          "name": "Interior Acc.",
+          "refName": "interiorAccent",
+          "state": true,
+          "direction": "none",
+          "value": 50
+        },
+        "psRearSlide": {
+          "selected": true,
+          "type": "lights",
+          "name": "P/S Rr. Slide",
+          "refName": "psRearSlide",
+          "state": true,
+          "direction": "none",
+          "value": 50
+        },
+        "bedroom": {
+          "selected": true,
+          "type": "lights",
+          "name": "Bedroom",
+          "refName": "bedroom",
+          "state": true,
+          "direction": "none",
+          "value": 50
+        },
+        "masterBath": {
+          "selected": true,
+          "type": "lights",
+          "name": "Master Bath",
+          "refName": "masterBath",
+          "state": true,
+          "direction": "none",
+          "value": 50
+        }
+      },
+      "shades": {
+        "basicBedroom": {
+          "refName": "basicBedroom",
+          "selected": true,
+          "direction": "none",
+          "name": "Bedroom Shades",
+          "type": "shades"
+        }
+      },
+      "tvLift": {}
+    },
+    "bedroomTheaterOff": {
+      "state": false,
+      "mode": "Bedroom Theater Off",
+      "lights": {
+        "interiorAccent": {
+          "selected": true,
+          "type": "lights",
+          "name": "Interior Acc.",
+          "refName": "interiorAccent",
+          "state": true,
+          "direction": "none",
+          "value": 50
+        },
+        "psRearSlide": {
+          "selected": true,
+          "type": "lights",
+          "name": "P/S Rr. Slide",
+          "refName": "psRearSlide",
+          "state": true,
+          "direction": "none",
+          "value": 50
+        },
+        "bedroom": {
+          "selected": true,
+          "type": "lights",
+          "name": "Bedroom",
+          "refName": "bedroom",
+          "state": true,
+          "direction": "none",
+          "value": 50
+        },
+        "masterBath": {
+          "selected": true,
+          "type": "lights",
+          "name": "Master Bath",
+          "refName": "masterBath",
+          "state": true,
+          "direction": "none",
+          "value": 50
+        }
+      },
+      "shades": {
+        "basicBedroom": {
+          "refName": "basicBedroom",
+          "selected": true,
+          "direction": "none",
+          "name": "Bedroom Shades",
+          "type": "shades"
+        }
+      },
+      "tvLift": {}
+    }
+  },
+  "avData": {
+    "zones": "{\"ovhd\":{},\"frtSalon\":{},\"rearSalon\":{},\"bedroom\":{},\"exterior\":{},\"topBunk\":{},\"bottomBunk\":{},\"midBath\":{},\"bathroom\":{}}",
+    "deviceList": "{}"
   }
 }
