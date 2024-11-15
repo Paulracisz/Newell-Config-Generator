@@ -1,55 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Configuration Builder</title>
-</head>
-<body>
-  <h1>Configuration Builder</h1>
-  <form id="configForm">
-    <label>Floor Plan:
-      <input type="text" id="floorPlan" value="1809">
-    </label><br>
-    <label>Entry Location:
-      <select id="entryLocation">
-        <option value="mid">Mid</option>
-        <option value="front">Front</option>
-        <option value="rear">Rear</option>
-      </select>
-    </label><br>
+  <head>
+    <meta charset="UTF-8" />
 
-    <!-- Example circuits selection; can be expanded -->
-    <label>Select Circuits:</label><br>
-    <input type="checkbox" name="circuits" value="Cab"> Cab<br>
-    <input type="checkbox" name="circuits" value="Ceiling (Salon)"> Ceiling (Salon)<br>
-    <input type="checkbox" name="circuits" value="Dinette"> Dinette<br>
-    <button type="button" onclick="saveConfig()">Save Configuration</button>
-  </form>
+    <link rel="stylesheet" href="./src/index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Configuration Builder</title>
+  </head>
+  <body>
+    <h1>Configuration Builder</h1>
+    <form id="configForm">
+      <label
+        >Floor Plan: <input type="text" id="floorPlan" value="1809" /> </label
+      ><br />
+      <label
+        >Entry Location:
+        <select id="entryLocation">
+          <option value="mid">Mid</option>
+          <option value="front">Front</option>
+        </select> </label
+      ><br />
+      <label
+        >Entry Type:
+        <select id="entryType">
+          <option value="straight">Straight</option>
+          <option value="curved">Curved</option>
+        </select> </label
+      ><br />
+      <label
+        >Powder Room Location:
+        <select id="powderRoomLocation">
+          <option value="driver">Driver</option>
+          <option value="passenger">Passenger</option>
+        </select> </label
+      ><br />
+      <label
+        >Bed Location:
+        <select id="bedLocation">
+          <option value="driver">Driver</option>
+          <option value="passenger">Passenger</option>
+        </select> </label
+      ><br />
+      <label
+        >Rear Toilet Location:
+        <select id="rearToiletLocation">
+          <option value="driver">Driver</option>
+          <option value="passenger">Passenger</option>
+        </select> </label
+      ><br />
 
-  <script>
-    const { ipcRenderer } = require('electron');
+      <label>AV Docs Link<input type="text" id="avDocs" value="" /> </label
+      ><br />
 
-    // Save Config function
-    function saveConfig() {
-      const floorPlan = document.getElementById('floorPlan').value;
-      const entryLocation = document.getElementById('entryLocation').value;
-      const selectedCircuits = Array.from(document.querySelectorAll('input[name="circuits"]:checked')).map(cb => cb.value);
+      <label
+        >Load List Link: <input type="text" id="loadList" value="" /> </label
+      ><br />
 
-      // Build new config based on user inputs
-      const newConfig = {
-        floorPlan,
-        coachDescription: { entryLocation },
-        circuits: { dcDim: { circuits: selectedCircuits.map((name, index) => ({ name, circuit: index + 1 })) } }
-      };
+      <label>Options</label><br />
+      <input type="checkbox" name="circuits" value="rvcInv" checked /> RVC
+      Inverter Option<br />
 
-      ipcRenderer.send('save-config', newConfig);
-    }
+      <!-- Example circuits selection; can be expanded -->
+      <label>Select Circuits:</label><br />
+      <input type="checkbox" name="circuits" value="Cab" /> Cab<br />
+      <input type="checkbox" name="circuits" value="Ceiling (Salon)" /> Ceiling
+      (Salon)<br />
+      <input type="checkbox" name="circuits" value="Dinette" /> Dinette<br />
+      <button type="button" onclick="saveConfig()">Save Configuration</button>
+    </form>
 
-    // Confirmation on save success
-    ipcRenderer.on('save-success', (event, message) => {
-      alert(message);
-    });
-  </script>
-</body>
+    <script>
+      const { ipcRenderer } = require("electron");
+
+      // Save Config function
+      function saveConfig() {
+        const floorPlan = document.getElementById("floorPlan").value;
+        const entryLocation = document.getElementById("entryLocation").value;
+        const entryType = document.getElementById("entryType").value;
+        const powderRoomLocation =
+          document.getElementById("powderRoomLocation").value;
+        const bedLocation = document.getElementById("bedLocation").value;
+        const rearToiletLocation =
+          document.getElementById("rearToiletLocation").value;
+
+        const avDocs = document.getElementById("avDocs").value;
+        const loadList = document.getElementById("loadList").value;
+        const selectedCircuits = Array.from(
+          document.querySelectorAll('input[name="circuits"]:checked')
+        ).map((cb) => cb.value);
+
+        // Build new config based on user inputs
+        const newConfig = {
+          floorPlan,
+          coachDescription: {
+            entryLocation,
+            entryType,
+            powderRoomLocation,
+            bedLocation,
+            rearToiletLocation,
+            css: {
+              transform: "translate(10px, -110.5px) scale(1.05)",
+            },
+          },
+          canSystemType: "M1",
+          direction: "right",
+          clcAddress: ["0x81", "0x0F", 129, 15],
+          teamViewerTeamSupport: true,
+          embeddedLinks: {
+            avDocs: avDocs,
+            loadList: loadList,
+          },
+
+          flags: {
+            spyder: false,
+            airScreen: true,
+            newPowerManagement: true,
+            customRGBColor: true,
+            newValves: true,
+            byPassValveOption: false,
+          },
+          auxHeaterOptions: ["Living Area Heat", "Bedroom Aux Heat"],
+          slidesOnRsi: true,
+          availableCameras: {
+            originalWiring: false,
+            settingsButton: true,
+            buttons: {
+              Rear: {
+                type: "axis",
+                ipAddress: "192.168.124.141",
+                input: "1",
+              },
+              "D/S": {
+                type: "axis",
+                ipAddress: "192.168.124.141",
+                input: "2",
+              },
+              "P/S": {
+                type: "axis",
+                ipAddress: "192.168.124.141",
+                input: "3",
+              },
+              Door: {
+                type: "axis",
+                ipAddress: "192.168.124.141",
+                input: "4",
+              },
+              "D/S Fuel": {
+                type: "axis",
+                ipAddress: "192.168.124.144",
+                input: "1",
+              },
+              "P/S Fuel": {
+                type: "axis",
+                ipAddress: "192.168.124.144",
+                input: "2",
+              },
+              Forward: {
+                type: "axis",
+                ipAddress: "192.168.124.144",
+                input: "3",
+              },
+              Interior: {
+                type: "axis",
+                ipAddress: "192.168.124.144",
+                input: "4",
+              },
+              FLIR: {
+                type: "axis",
+                ipAddress: "192.168.124.145",
+                input: "1",
+              },
+              360: {
+                type: "axis",
+                ipAddress: "192.168.124.145",
+                input: "2",
+              },
+              "Trailer 1": {
+                type: "axis",
+                ipAddress: "192.168.124.145",
+                input: "3",
+              },
+              "Trailer 2": {
+                type: "axis",
+                ipAddress: "192.168.124.145",
+                input: "4",
+              },
+              "Roof Fore": {
+                type: "axis",
+                ipAddress: "192.168.124.146",
+                input: "1",
+              },
+              "Roof Aft": {
+                type: "axis",
+                ipAddress: "192.168.124.146",
+                input: "2",
+              },
+              "Aux 1": {
+                type: "axis",
+                ipAddress: "192.168.124.146",
+                input: "3",
+              },
+              "Aux 2": {
+                type: "axis",
+                ipAddress: "192.168.124.146",
+                input: "4",
+              },
+            },
+          },
+          notes: `Newell ${floorPlan}:`,
+          projectorZones: [],
+          DCDriverActions: {
+            83: [],
+            86: [],
+            "8A": [],
+            92: [],
+          },
+          options: {},
+          circuits: {
+            dcDim: {
+              circuits: selectedCircuits.map((name, index) => ({
+                name,
+                circuit: index + 1,
+              })),
+            },
+          },
+        };
+
+        ipcRenderer.send("save-config", newConfig);
+      }
+
+      // Confirmation on save success
+      ipcRenderer.on("save-success", (event, message) => {
+        alert(message);
+      });
+    </script>
+  </body>
 </html>
