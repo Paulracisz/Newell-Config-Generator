@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuration Builder</title>
+</head>
+<body>
+  <h1>Configuration Builder</h1>
+  <form id="configForm">
+    <label>Floor Plan:
+      <input type="text" id="floorPlan" value="1809">
+    </label><br>
+    <label>Entry Location:
+      <select id="entryLocation">
+        <option value="mid">Mid</option>
+        <option value="front">Front</option>
+        <option value="rear">Rear</option>
+      </select>
+    </label><br>
+
+    <!-- Example circuits selection; can be expanded -->
+    <label>Select Circuits:</label><br>
+    <input type="checkbox" name="circuits" value="Cab"> Cab<br>
+    <input type="checkbox" name="circuits" value="Ceiling (Salon)"> Ceiling (Salon)<br>
+    <input type="checkbox" name="circuits" value="Dinette"> Dinette<br>
+    <button type="button" onclick="saveConfig()">Save Configuration</button>
+  </form>
+
+  <script>
+    const { ipcRenderer } = require('electron');
+
+    // Save Config function
+    function saveConfig() {
+      const floorPlan = document.getElementById('floorPlan').value;
+      const entryLocation = document.getElementById('entryLocation').value;
+      const selectedCircuits = Array.from(document.querySelectorAll('input[name="circuits"]:checked')).map(cb => cb.value);
+
+      // Build new config based on user inputs
+      const newConfig = {
+        floorPlan,
+        coachDescription: { entryLocation },
+        circuits: { dcDim: { circuits: selectedCircuits.map((name, index) => ({ name, circuit: index + 1 })) } }
+      };
+
+      ipcRenderer.send('save-config', newConfig);
+    }
+
+    // Confirmation on save success
+    ipcRenderer.on('save-success', (event, message) => {
+      alert(message);
+    });
+  </script>
+</body>
+</html>
